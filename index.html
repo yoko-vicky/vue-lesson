@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>My First Vuejs</title>
+</head>
+<body>
+  <h1>Hello yoko</h1>
+
+  <div id="app">
+
+    <!-- attribute binding -->
+    <!-- <a v-bind:href="url">See My Website!</a> -->
+    <a :href="url">See My Website!</a>
+
+    <!-- <p>{{ filteredBooks }}</p> -->
+
+    <div v-if="showBooks">
+      <!-- <h2>{{title}} - {{author}} - {{age}}</h2> -->
+      <!-- <h2>{{books[0].title}} - {{books[0].author}}</h2>
+      <h2>{{books[1].title}} - {{books[1].author}}</h2> -->
+      <ul>
+          <li v-for="book in filteredBooks" :class="{ fav: book.isFav }" @click="toggleFavStatus(book)">
+            <img :src="book.img" :alt="book.title">
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+          </li>
+      </ul>
+
+    </div>
+    <button @click="toggleShowBooks">
+      <span v-if="showBooks">Hide Books</span>
+      <span v-else>Show Books</span>
+    </button>
+
+    <!-- <div v-show="showBooks">currently showing books</div> -->
+    <br>
+    <!-- mouse events -->
+    <div class="box" v-on:mouseover="handleEvent($event, 5)">mouseover(enter)</div>
+    <div class="box" @mouseleave="handleEvent">mouseleave(exit)</div>
+    <div class="box" @dblclick="handleEvent">doubleClick</div>
+    <div class="box" @mousemove="handleMousemove">position - {{x}}:{{y}}</div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3.0.2"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

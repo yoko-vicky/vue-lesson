@@ -1,0 +1,30 @@
+body{
+  background: #eee;
+  max-width: 980px;
+  margin: 20px auto;
+}
+p, h3, ul{
+  margin: 0;
+  padding: 0;
+}
+.box {
+  padding: 100px 0;
+  width: 400px;
+  text-align: center;
+  background-color: aqua;
+  margin: 20px;
+  display: inline-block;
+}
+li{
+  list-style: none;
+  background: white;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+li.fav{
+  background: pink;
+}
