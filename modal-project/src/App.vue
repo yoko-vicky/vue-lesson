@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <!-- <input type="text" ref="booo"> -->
   <!-- <button @click="handleClick">Click Me</button> -->
-  <Modal />
+  <Modal :header="header" :text="text" :booksList="bookList" theme="sale" />
 </template>
 
 <script>
@@ -13,7 +13,10 @@ export default {
   components: { Modal },
   data(){
     return {
-      title: 'My first view app :)'
+      title: 'My first view app :)',
+      header: 'Signup for the Gateway!',
+      text: 'Grab your ninja swag for half price!',
+      bookList: ['Archemist', 'Wonderland']
     }
   },
   methods: {
