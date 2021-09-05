@@ -31,4 +31,8 @@
   border-bottom: none;
   padding: 0;
 }
+
+.modal p {
+  font-style: normal;
+}
 </style>
