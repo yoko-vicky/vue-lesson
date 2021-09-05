@@ -8,7 +8,8 @@
 </template>
 
 
-<style scoped>
+<style>
+/* <style scoped> */
 .modal{
   width: 400px;
   padding: 20px;
@@ -25,7 +26,7 @@
   height: 100%;
 }
 
-h1{
+.modal h1{
   color: green;
   border-bottom: none;
   padding: 0;
