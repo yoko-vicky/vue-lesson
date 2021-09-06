@@ -5,7 +5,10 @@
   <!-- <button @click="handleClick">Click Me</button> -->
   <div v-if="showModal">
     <!-- @closeToggle => customEvent -->
-    <Modal :header="header" :text="text" :booksList="bookList" theme="sale" @closeToggle="toggleModal" />
+    <Modal theme="sale" @closeToggle="toggleModal">
+      <h1>Ninja Giveaway!</h1>
+      <p>Grab your ninja swag for half price!</p>
+    </Modal>
   </div>
   <button @click.alt="toggleModal">Open Modal (alt)</button>
 </template>
@@ -21,7 +24,6 @@ export default {
       title: 'My first view app :)',
       header: 'Signup for the Gateway!',
       text: 'Grab your ninja swag for half price!',
-      // bookList: ['Archemist', 'Wonderland']
       showModal: false
     }
   },
