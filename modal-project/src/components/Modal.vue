@@ -1,5 +1,6 @@
 <template>
-  <div class="backdrop" @click="closeModal">
+<!-- .self is one of the Click Event Modifiers that means separate one from another elements including parents and child. In this case, .self modifier separates parent backdrop from child modal element-->
+  <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale'}">
       <h1>{{ header }}</h1>
       <p>{{ text }}</p>

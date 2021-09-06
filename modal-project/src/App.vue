@@ -7,7 +7,7 @@
     <!-- @closeToggle => customEvent -->
     <Modal :header="header" :text="text" :booksList="bookList" theme="sale" @closeToggle="toggleModal" />
   </div>
-  <button @click="toggleModal">Open Modal</button>
+  <button @click.alt="toggleModal">Open Modal (alt)</button>
 </template>
 
 <script>
