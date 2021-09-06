@@ -1,8 +1,13 @@
 <template>
   <h1>{{ title }}</h1>
+  <p>Welcome...</p>
   <!-- <input type="text" ref="booo"> -->
   <!-- <button @click="handleClick">Click Me</button> -->
-  <Modal :header="header" :text="text" :booksList="bookList" theme="sale" />
+  <div v-if="showModal">
+    <!-- @closeToggle => customEvent -->
+    <Modal :header="header" :text="text" :booksList="bookList" theme="sale" @closeToggle="toggleModal" />
+  </div>
+  <button @click="toggleModal">Open Modal</button>
 </template>
 
 <script>
@@ -16,7 +21,8 @@ export default {
       title: 'My first view app :)',
       header: 'Signup for the Gateway!',
       text: 'Grab your ninja swag for half price!',
-      bookList: ['Archemist', 'Wonderland']
+      // bookList: ['Archemist', 'Wonderland']
+      showModal: false
     }
   },
   methods: {
@@ -25,6 +31,9 @@ export default {
       console.log(this.$refs.booo.classList)
       this.$refs.booo.classList.add('active')
       this.$refs.booo.focus()
+    },
+    toggleModal(){
+      this.showModal = !this.showModal
     }
   }
 }
