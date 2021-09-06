@@ -6,6 +6,10 @@
   <div v-if="showModal">
     <!-- @closeToggle => customEvent -->
     <Modal theme="sale" @closeToggle="toggleModal">
+      <template v-slot:modalLinks>
+        <a href="#">Sign up now</a>
+        <a href="#">More info</a>
+      </template>
       <h1>Ninja Giveaway!</h1>
       <p>Grab your ninja swag for half price!</p>
     </Modal>

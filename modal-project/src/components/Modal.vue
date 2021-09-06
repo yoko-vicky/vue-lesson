@@ -2,7 +2,10 @@
 <!-- .self is one of the Click Event Modifiers that means separate one from another elements including parents and child. In this case, .self modifier separates parent backdrop from child modal element-->
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale'}">
-      <slot></slot>
+      <slot>default content</slot>
+      <div class="actions">
+        <slot name="modalLinks"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -56,6 +59,20 @@ export default {
 }
 
 .modal.sale * {
-  color: white;
+  color: white!important;
+}
+
+.modal .actions{
+  text-align: center;
+  margin: 30px 0 10px 0;
+}
+
+.modal .actions a{
+  color: #333;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 10px;
 }
 </style>
