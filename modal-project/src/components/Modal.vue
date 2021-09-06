@@ -1,5 +1,4 @@
 <template>
-<!-- .self is one of the Click Event Modifiers that means separate one from another elements including parents and child. In this case, .self modifier separates parent backdrop from child modal element-->
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale'}">
       <slot>default content</slot>
@@ -15,8 +14,6 @@ export default {
   props: ['theme'],
   methods: {
     closeModal(){
-      // Emit(Fire) custom Event, '@closeToggle' that is passed from parent componenet as a prop is fired
-      // when backdrop is clicked
       this.$emit('closeToggle')
     }
   }

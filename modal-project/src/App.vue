@@ -1,10 +1,8 @@
 <template>
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
-  <!-- <input type="text" ref="booo"> -->
-  <!-- <button @click="handleClick">Click Me</button> -->
+
   <div v-if="showModal">
-    <!-- @closeToggle => customEvent -->
     <Modal theme="sale" @closeToggle="toggleModal">
       <template v-slot:modalLinks>
         <a href="#">Sign up now</a>
@@ -14,7 +12,18 @@
       <p>Grab your ninja swag for half price!</p>
     </Modal>
   </div>
+
+  <div v-if="showModalTwo">
+    <Modal @closeToggle="toggleModalTwo">
+      <template v-slot:modalLinks>
+        <a href="#">Sign up the news letter</a>
+        <a href="#">For updates and promo codes!</a>
+      </template>
+    </Modal>
+  </div>
+
   <button @click.alt="toggleModal">Open Modal (alt)</button>
+  <button @click.shift="toggleModalTwo">Open Modal2 (shift)</button>
 </template>
 
 <script>
@@ -26,9 +35,8 @@ export default {
   data(){
     return {
       title: 'My first view app :)',
-      header: 'Signup for the Gateway!',
-      text: 'Grab your ninja swag for half price!',
-      showModal: false
+      showModal: false,
+      showModalTwo: false
     }
   },
   methods: {
@@ -40,7 +48,10 @@ export default {
     },
     toggleModal(){
       this.showModal = !this.showModal
-    }
+    },
+    toggleModalTwo(){
+      this.showModalTwo = !this.showModalTwo
+    },
   }
 }
 </script>
