@@ -1,9 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Jobs from '../views/jobs/Jobs.vue'
-import JobsDetails from '../views/jobs/JobsDetails.vue'
+// import About from '../views/About.vue'
+// import Jobs from '../views/jobs/Jobs.vue'
+// import JobsDetails from '../views/jobs/JobsDetails.vue'
 import NotFound from '../views/NotFound.vue'
+
+// How to make component loading lazy loading?
+// https://next.router.vuejs.org/guide/advanced/lazy-loading.html#grouping-components-in-the-same-chunk
 
 const routes = [
   {
@@ -14,17 +17,20 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: About
+    // make component lazy loding
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
     path: '/jobs',
     name: 'Jobs',
-    component: Jobs
+    // component: Jobs
+    component: () => import(/* webpackChunkName: "jobs" */ '../views/jobs/Jobs.vue')
   },
   {
     path: '/jobs/:id',
     name: 'JobsDetails',
-    component: JobsDetails,
+    // component: JobsDetails,
+    component: () => import(/* webpackChunkName: "jobsDetails" */ '../views/jobs/JobsDetails.vue'),
     props: true
   },
   // redirect
