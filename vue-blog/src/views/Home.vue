@@ -1,37 +1,26 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <h2>Refs</h2>
-    <p>{{ personOne.name }} - {{personOne.age }}</p>
-    <button @click="updatePersonOne">Update person one</button>
-    <p>-----------------------------------------</p>
-    <h2>Reactive</h2>
-    <p>{{ personTwo.name }} - {{personTwo.age }}</p>
-    <button @click="updatePersonTwo">Update person Two</button>
+    <input type="text" v-model="search">
+    <p>Search term: {{ search }}</p>
+    <div v-for="name in macthingNames" key="name">{{ name }}</div>
   </div>
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
+import { computed, ref } from 'vue'
 
 export default {
   name: 'Home',
   setup(){
-    const personOne = ref({ name : 'vicky', age: 37 })
-    const personTwo = reactive({ name: 'mario', age: 35 })
+    const search = ref('')
+    const names = ref(['mario', 'yoshi', 'luigi', 'toad', 'bowser', 'koopa', 'peach'])
 
-    const updatePersonOne = () => {
-      personOne.value.age = 20
-    }
+    const macthingNames = computed(()=>{
+      return names.value.filter((name)=> name.includes(search.value))
+    })
 
-    const updatePersonTwo = () => {
-      personTwo.age = 5
-      
-    }
-
-    return {
-      personOne, updatePersonOne, personTwo, updatePersonTwo
-    }
+    return { names, search, macthingNames }
   }
 }
 </script>
