@@ -41,3 +41,17 @@ eg: OK with ref
 const name = ref('mario')
 
 we cannot create primitive reactive variable using reactive
+
+
+Difference between watch and watchEffect
+
+// Everytime specified variable ex."search" changes, do something
+    const stopWatchForSearch = watch(search, ()=>{
+      console.log('watch running')
+    })
+
+// Eny updates/changes on variables inside this useEffect function will be detected
+    const stopWatchEffect = watchEffect(()=>{
+      console.log('watchEffect Function running', search.value)
+      console.log('watchEffect Function running', person.value)
+    })
