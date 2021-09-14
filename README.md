@@ -62,8 +62,8 @@ Give a ⭐️ if you like this project!
 
 
 ## License
-All files on this repository is [MIT](./LICENSE) licensed except for the project concepts.
-The projects' concepts are originally provided by [Build Web Apps with Vue JS 3 & Firebase](https://www.udemy.com/course/build-web-apps-with-vuejs-firebase/) that is offered by [The Net Ninja (Shaun Pelling)](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg). 
+All files on this repository is [MIT](./LICENSE) licensed except for the project concepts and design.
+The projects' concepts, code and design(css) are originally provided by [Build Web Apps with Vue JS 3 & Firebase](https://www.udemy.com/course/build-web-apps-with-vuejs-firebase/) that is offered by [The Net Ninja (Shaun Pelling)](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg). 
 
 
 ## Acknowledgements
