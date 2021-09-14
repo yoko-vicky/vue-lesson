@@ -1,46 +1,24 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <input type="text" v-model="search">
-    <p>Search term: {{ search }}</p>
-    <div v-for="name in macthingNames" key="name">{{ name }}</div>
-    <button @click="handleStopWatch">Stop Watching</button>
-    <button @click="handleStopWatchEffect">Stop Watch Effect</button>
+    <PostList :posts="posts" />
   </div>
 </template>
 
 <script>
-import { computed, ref, watch, watchEffect } from 'vue'
+import { ref } from 'vue'
+import PostList from '../components/PostList.vue'
 
 export default {
   name: 'Home',
+  components: { PostList },
   setup(){
-    const search = ref('')
-    const names = ref(['mario', 'yoshi', 'luigi', 'toad', 'bowser', 'koopa', 'peach'])
+    const posts = ref([
+      { title: 'welcome to the blog', body: '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate autem quae, in blanditiis fuga totam ad dolore reprehenderit eum modi similique eos! Nulla aliquam est vero maiores voluptate hic dicta!  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate autem quae, in blanditiis fuga totam ad dolore reprehenderit eum modi similique eos! Nulla aliquam est vero maiores voluptate hic dicta!', id: 1 },
+      { title: 'top 5 CSS tips', body: 'lorem ipsum', id: 2 },
+    ])
 
-    const stopWatchForSearch = watch(search, ()=>{
-      // Everytime search changes, do something
-      console.log('watch running')
-    })
-
-    const stopWatchEffect = watchEffect(()=>{
-      // Eny updates/changes on variables inside this useEffect function will be detected
-      console.log('watchEffect Function running', search.value)
-    })
-
-    const macthingNames = computed(()=>{
-      return names.value.filter((name)=> name.includes(search.value))
-    })
-
-    const handleStopWatch = () => {
-      stopWatchForSearch()
-    }
-
-    const handleStopWatchEffect = () => {
-      stopWatchEffect()
-    }
-
-    return { names, search, macthingNames, handleStopWatch, handleStopWatchEffect }
+    return { posts }
   }
 }
 </script>
